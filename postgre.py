@@ -19,11 +19,11 @@ cursor.execute("SELECT version();")
 version = cursor.fetchone()
 print("Versión de PostgreSQL:", version)
 
-# Añadir las tablas
+# Añadir las si no estan creadas
 cursor.execute(sql_script)
 conexion.commit()
 
-# (Opcional) listar tablas existentes
+# Listar tablas existentes
 cursor.execute("""
     SELECT table_name
     FROM information_schema.tables
@@ -39,5 +39,6 @@ for t in tablas:
 cursor.close()
 conexion.close()
 
+#########################################################################################################################
 #########################################################################################################################
 
