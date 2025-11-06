@@ -5,8 +5,8 @@ conexion = psycopg2.connect(
     host="localhost",
     port=5432,
     database="midb",
-    user="usuario",
-    password="contraseña"
+    user="user",
+    password="password"
 )
 
 # Crea un cursor
