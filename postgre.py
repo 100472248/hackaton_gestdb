@@ -1,4 +1,5 @@
 import psycopg2
+from postgredb_structure import sql_script
 
 # Configura los datos de conexión
 conexion = psycopg2.connect(
@@ -18,6 +19,10 @@ cursor.execute("SELECT version();")
 version = cursor.fetchone()
 print("Versión de PostgreSQL:", version)
 
+# Añadir las tablas
+cursor.execute(sql_script)
+conexion.commit()
+
 # (Opcional) listar tablas existentes
 cursor.execute("""
     SELECT table_name
@@ -33,3 +38,6 @@ for t in tablas:
 # Cierra conexión
 cursor.close()
 conexion.close()
+
+#########################################################################################################################
+
